@@ -87,13 +87,13 @@
 
 			  <div class="carousel-inner">
 			    <div class="carousel-item active">
-			      <img  class="d-block w-85" src="{{$name}}" >
+			      <img class="d-block w-85" src="{{$name}}" height="100" width="100">
 			    </div>
 
 			    @for($c=1;$c<$i;$c++)
 			    <label hidden>{{$name='/storage/'.$v[$c]}}</label>
 			    <div class="carousel-item">
-			      <img   class="d-block w-85"  src="{{$name}}" >
+			      <img   class="d-block w-85"  src="{{$name}}" height="100" width="100">
 			    </div>
 			    @endfor
 
@@ -107,6 +107,8 @@
 			    <span class="sr-only">Next</span>
 			  </a>
 			</div>
+			<a href="{{route('historics.edit',$id)}}">PDF</a>
+			{{-- <a href="{{route('historics.edit',$ident)}}">PDF</a> --}}
 		</div>
 		<br>
 		@endif

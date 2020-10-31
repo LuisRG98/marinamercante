@@ -29,10 +29,23 @@ class CreateUserRequest extends FormRequest
             'lastname1'=>'required',
             'lastname2'=>'required',
             'rango'=>'required',
-            'email'=>'email|required|unique:users,email',
+            'email'=>'required|email|unique:users,email',
             'state'=>'required',
             'password'=>'required|confirmed',
             'roles'=>'required',
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'Ingrese un nombre',
+            'lastname1.required' => 'Ingrese el apellido paterno',
+            'lastname2.required' => 'Ingrese el apellido materno',
+            'rango.required' => 'Defina su rango',
+            'email.email' => 'Introduzca un correo electónico',
+            'email.required' => 'Introduzca un correo electónico',
+            
         ];
     }
 }

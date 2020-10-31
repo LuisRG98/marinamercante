@@ -150,22 +150,7 @@
 				@enderror
 			</div>
 
-			<div class="form-group ">
-			<label for="roles required">Roles</label>
-			<div class="checkbox">
-				@foreach($roles as $id=>$name)
-					<label>
-						<input
-							type="checkbox"
-							name="roles[]"
-							id="roles"
-							value="{{$id}}"
-							{{$user->roles->pluck('id')->contains($id) ? 'checked' :''}}>
-						{{$name}}
-					</label>
-				@endforeach
-			</div>
-			</div>
+
 
 			@unless($user->id)
 			<div class="form-group required">

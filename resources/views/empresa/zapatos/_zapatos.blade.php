@@ -9,30 +9,29 @@
 } );
 </script>
 <div class="table-responsive-sm">
-<table id="example" class="table-bordered shadow " style="width:100% ">
+<table id="example" class="table-bordered shadow" style="width:100%; text-align: center;">
 	<thead>
 		<tr>
-			<th>Nombre</th>
-			<th>Estado</th>
-			<th>Rol</th>
+			<th>Código</th>
+			<th>Modelo</th>
+			<th>Color</th>
 			<th>Acción</th>
 		</tr>
 	</thead>
 	<tbody>
-		@foreach($users as $user)
+		@foreach($zapatos as $zapato)
 		<tr>
-			<td>{{$user->name}}</td>
-			<td>{{$user->state}}</td>
+			<td>{{$zapato->codigo}}</td>
+			<td>{{$zapato->modelo}}</td>
+			<td>{{$zapato->color}}</td>
+	
 			<td>
-				{{-- @foreach($user->roles as $role)
-				{{$role->display_name}}
-				@endforeach --}}
-			</td>
-			<td>
-				@if($name = Route::currentRouteName()=='usuarios.index')
-					<a href="{{route('usuarios.show',$user)}}">Ver</a>
+				@if($name = Route::currentRouteName()=='zapatos.index')
+					<a href="{{route('zapatos.show',$zapato)}}">Ver</a>
+				@elseif($name = Route::currentRouteName()=='ventas.store')
+					<a href="{{route('zapatos.edit',$zapato->id)}}">Venta</a>
 				@else
-					<a href="{{route('usuarios.edit',$user->id)}}">Editar</a>
+					<a href="{{route('zapatos.edit',$zapato->id)}}">Editar</a>
 				@endif
 			</td>
 		</tr>
@@ -41,8 +40,3 @@
 	<tr></tr>
 </table>
 </div>
-<script type="text/javascript">
-	$(document).ready(function() {
-    $('#example').DataTable();
-} );
-</script>

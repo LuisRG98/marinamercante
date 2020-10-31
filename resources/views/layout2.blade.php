@@ -2,12 +2,24 @@
 <html>
 <head>
   <title>MicroE</title>
-  <link rel="stylesheet" href="/css/app.css">
 
-  <script src="/js/app.js" defer></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <script src="js/pinterest_grid.js"></script>
+
+
+  <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/lumen/bootstrap.min.css" rel="stylesheet">
+
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+
+  <link rel="stylesheet" href="/css/main.css">
+
+
+
 
 </head>
-<body style="background-image: url(/img/img1.jpg);background-repeat: no-repeat;background-image: fixed;background-image: center;background-size: cover;">
+<body style="background-image: url(/img/img2.jpg);background-repeat: no-repeat;background-image: fixed;background-image: center;background-size: cover;">
 <div class="d-flex flex-column h-screen">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
     <a class="navbar-brand px-3" href="#">MicroE</a>
@@ -17,35 +29,6 @@
 
     <div class="collapse navbar-collapse px-3" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        @if(Auth::user()->infoempresa=='vacio')
-        <li class="nav-item">
-          <a class="nav-link" href="{{route('usuarios.index')}}">¡Registrar a tu empresa!</a>
-        </li>
-        @elseif(Auth::user()->infoempresa=='Lleno')
-        <li class="nav-item">
-          <a class="nav-link" href="{{route('usuarios.index')}}">Editar Datos</a>
-        </li>
-        @endif
-        <li class="nav-item dropdown">
-          <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-            ¡Productos!
-          </a>
-          <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{{ route('zapatos.create') }}">¡Registrar tus productos!</a>
-              <a class="dropdown-item" href="{{ route('edi') }}">¡Edita tus productos!</a>
-              <a class="dropdown-item" href="{{ route('zapatos.index') }}">Listado de productos</a>
-          </div>
-        </li>
-
-       <li class="nav-item dropdown">
-          <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-            ¡Ventas!
-          </a>
-          <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{{ route('ventas.create') }}">¡Historial de ventas!</a>
-              <a class="dropdown-item" href="{{ route('ventas.index') }}">¡Realiza una venta!</a>
-          </div>
-        </li>
 
         <li class="nav-item">
           <a class="nav-link" href="{{route('productos.index')}}">¡Catálogo de Productos!</a>
@@ -61,10 +44,13 @@
               </li>
               @if (Route::has('register'))
                   <li class="nav-item">
-                      <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
+                      <a class="nav-link" href="{{ route('register') }}">{{ __('¡Registrate!') }}</a>
                   </li>
               @endif
           @else
+              <li class="nav-item">
+                <a class="nav-link" href="{{route('home')}}">Volver</a>
+              </li>
               <li class="nav-item dropdown">
                   <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                       {{ Auth::user()->name }}
@@ -88,15 +74,17 @@
     </div>
   </nav>
 
-<div class="container py-3">
-<main>
-  @yield('content')
-</main> 
+  <div >
+   
+    <div class="container col-md-12">
+    <main>
+      <br>
+      @yield('content')
+    </main>
+  </div>
+  </div>
   
-</div>
-
- 
-
+  
 </div>
 </body>
 
